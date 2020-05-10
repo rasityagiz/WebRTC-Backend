@@ -1,13 +1,7 @@
-from flask import Flask
-from flask_restplus import Api, Resource, fields
-from flask_cors import CORS
+from flask_restplus import Resource, fields
+from webrtc import ns, create_app
 
-app = Flask(__name__)
-CORS(app)
-api = Api(app, version='1.0', title='WebRTC API',
-          description='WebRTC API', doc='/docs')
-
-ns = api.namespace('webrtc', description='WebRTC operations')
+app = create_app()
 
 
 @ns.route("/get")
